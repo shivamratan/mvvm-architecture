@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+        <variable
+            name="viewModel"
+            type="com.ratanapps.mvvm_architecture.viewmodel.TestViewModel" />
+
+    </data>
+
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    >
+
+
+<FrameLayout
+    android:id="@+id/loadingFrame"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="@{viewModel.showLoading?View.VISIBLE:View.GONE}"
+    >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:textColor="#000"
+            android:layout_marginTop="15dp"
+            android:text="@string/loading_text"
+            />
+
+
+    </LinearLayout>
+
+</FrameLayout>
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:visibility="@{viewModel.showLoading?View.INVISIBLE:View.VISIBLE}"
+    tools:context=".ui.MainActivity">
+
+    <Button
+        android:id="@+id/btn_request"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_request_name"
+        android:layout_marginTop="45dp"
+        android:visibility="@{viewModel.showResultData?View.GONE:View.VISIBLE}"
+        android:onClick="@{()->viewModel.onRequestButtonClicked()}"
+        android:layout_centerHorizontal="true"
+        />
+
+
+
+ <ScrollView
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:layout_marginTop="15dp"
+     android:visibility="@{viewModel.showResultData?View.VISIBLE:View.INVISIBLE}"
+     android:layout_below="@+id/btn_request">
+
+
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical">
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/task1_Title_name"
+            android:textColor="#111"
+            android:textStyle="bold"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#111" />
+
+
+        <TextView
+            android:id="@+id/textViewTask1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.resultTask1}"
+            android:textColor="#000"
+            android:textSize="14dp"
+            android:layout_marginTop="5dp"
+            />
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/task2_title_name"
+            android:textColor="#111"
+            android:textStyle="bold"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#111" />
+
+
+        <TextView
+            android:id="@+id/textViewTask2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textColor="#000"
+            android:textSize="14dp"
+            android:text="@{viewModel.resultTask2}"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:text="@string/task3_title_name"
+            android:textColor="#111"
+            android:textStyle="bold"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#666" />
+
+
+        <TextView
+            android:id="@+id/textViewTask3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textColor="#000"
+            android:textSize="14dp"
+            android:text="@{viewModel.resultTask3}"
+            />
+
+    </LinearLayout>
+
+  </LinearLayout>
+ </ScrollView>
+
+</RelativeLayout>
+</FrameLayout>
+</layout>

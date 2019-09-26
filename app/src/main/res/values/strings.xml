@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">test</string>
+    <string name="btn_request_name">Request Now !</string>
+    <string name="task1_Title_name">Truecaller10thCharacterRequest</string>
+    <string name="task2_title_name">TruecallerEvery10thCharacterRequest</string>
+    <string name="task3_title_name">TruecallerWordCounterRequest</string>
+    <string name="loading_text">Loading Please wait</string>
+
+</resources>
